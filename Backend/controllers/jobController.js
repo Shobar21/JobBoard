@@ -19,8 +19,9 @@ export const getAlljobController = async (req, res, next) => {
   const { status, workType, search, sort } = req.query
   //conditions for searching filter
   const queryObject = {
-    createdBy: req.user.userId,
+    createdBy: req.body.user.userId,
   }
+  console.log(queryObject)
   //logic filters
   if (status && status !== 'all') {
     queryObject.status = status
@@ -51,10 +52,10 @@ export const getAlljobController = async (req, res, next) => {
 
   //pagination
   const page = Number(req.query.page) || 1
-  const limit = Number(req.query.limit) || 8
+  const limit = Number(req.query.limit) || 6
   const skip = (page - 1) * limit
 
-  queryResult = queryResult.skip(skip).limit(limit)
+  // queryResult = queryResult.skip(skip).limit(limit)
   //job count
   const totalJobs = await jobModel.countDocuments(queryResult)
   const numOfPage = Math.ceil(totalJobs / limit)

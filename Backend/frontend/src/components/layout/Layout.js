@@ -21,9 +21,7 @@ const Layout = ({ children }) => {
           <div className='logo'>
             <h6>JOB BOARD</h6>
           </div>
-          <hr />
-          <p className='text-center text-warning'>Welcome : username</p>
-          <hr />
+
           <div className='menu'>
             {sidebarMenu.map((menu) => {
               const isActive = location.pathname === menu.path

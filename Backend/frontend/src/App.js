@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound.js'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import PrivateRoute from './components/routes/PrivateRoute.js'
+import Jobs from './pages/Jobs.js'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path='/jobs' element={<Jobs />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
